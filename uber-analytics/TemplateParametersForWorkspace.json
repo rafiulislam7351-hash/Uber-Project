@@ -1,0 +1,27 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"workspaceName": {
+			"value": "uber-analytics"
+		},
+		"Storage_accountKey": {
+			"value": ""
+		},
+		"datastreaming_accessToken": {
+			"value": ""
+		},
+		"uber-analytics-WorkspaceDefaultSqlServer_connectionString": {
+			"value": "Integrated Security=False;Encrypt=True;Connection Timeout=30;Data Source=tcp:uber-analytics.sql.azuresynapse.net,1433;Initial Catalog=@{linkedService().DBName}"
+		},
+		"Storage_properties_typeProperties_url": {
+			"value": "https://rideinformation.dfs.core.windows.net/"
+		},
+		"gitIngestion_properties_typeProperties_url": {
+			"value": "https://raw.githubusercontent.com/"
+		},
+		"uber-analytics-WorkspaceDefaultStorage_properties_typeProperties_url": {
+			"value": "https://rideinformation.dfs.core.windows.net"
+		}
+	}
+}
