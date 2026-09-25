@@ -1,0 +1,34 @@
+resources:
+  jobs:
+    complete_project:
+      name: complete_project
+      tasks:
+        - task_key: adls_ingest
+          notebook_task:
+            notebook_path: /Workspace/Users/rafiulislam7351@outlook.com/Uber-Project/Load-Data
+            source: WORKSPACE
+          max_retries: 2
+          min_retry_interval_millis: 59000
+          retry_on_timeout: true
+          disable_auto_optimization: false
+          environment_key: Default
+        - task_key: silvergold
+          depends_on:
+            - task_key: adls_ingest
+          pipeline_task:
+            pipeline_id: cf81ee0c-7e89-4ed5-8c36-46999a30b0cd
+            full_refresh: true
+        - task_key: savingIntoADls
+          depends_on:
+            - task_key: silvergold
+          notebook_task:
+            notebook_path: /Workspace/Users/rafiulislam7351@outlook.com/Uber-Project/saving
+              Data
+            source: WORKSPACE
+      queue:
+        enabled: true
+      environments:
+        - environment_key: Default
+          spec:
+            environment_version: "6"
+      performance_target: PERFORMANCE_OPTIMIZED
