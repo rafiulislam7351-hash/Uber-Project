@@ -1,0 +1,24 @@
+{
+	"name": "Trigger _",
+	"properties": {
+		"annotations": [],
+		"runtimeState": "Stopped",
+		"pipelines": [
+			{
+				"pipelineReference": {
+					"referenceName": "gitIngestion",
+					"type": "PipelineReference"
+				}
+			}
+		],
+		"type": "ScheduleTrigger",
+		"typeProperties": {
+			"recurrence": {
+				"frequency": "Day",
+				"interval": 1,
+				"startTime": "2026-09-25T08:53:00",
+				"timeZone": "Bangladesh Standard Time"
+			}
+		}
+	}
+}

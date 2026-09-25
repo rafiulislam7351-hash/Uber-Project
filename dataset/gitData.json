@@ -1,0 +1,27 @@
+{
+	"name": "gitData",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "gitIngestion",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"json_file_name": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "Json",
+		"typeProperties": {
+			"location": {
+				"type": "HttpServerLocation",
+				"relativeUrl": {
+					"value": "rafiulislam7351-hash/Uber-Project/refs/heads/main/DataSource/@{dataset().json_file_name}.json",
+					"type": "Expression"
+				}
+			}
+		},
+		"schema": {}
+	},
+	"type": "Microsoft.Synapse/workspaces/datasets"
+}
